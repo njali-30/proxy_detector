@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Results</title>
+</head>
+<body>
+    <h2>Attendance Results</h2>
+    <table border="1">
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Check-in Time</th>
+            <th>Status</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.roll_no }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.checkin_time if row.checkin_time is not none else 'N/A' }}</td>
+            <td>{{ row.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">Go back</a>
+</body>
+</html>
