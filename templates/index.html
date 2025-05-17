@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Check-in</title>
+</head>
+<body>
+    <h2>Enter Check-in Time (e.g., 9.00 for 9:00 AM)</h2>
+    <form method="POST" action="/check">
+        <table border="1">
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Check-in Time</th>
+            </tr>
+            {% for roll_no, name in students %}
+            <tr>
+                <td>{{ roll_no }}</td>
+                <td>{{ name }}</td>
+                <td><input type="text" name="time_{{ roll_no }}" required></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <button type="submit">Check Attendance</button>
+    </form>
+</body>
+</html>
